@@ -2,6 +2,7 @@ FROM gradle:jdk17-jammy AS builder
 RUN mkdir /app
 WORKDIR /app
 COPY . .
+RUN chmod +x ./gradlew
 RUN GRADLE_USER_HOME=. ./gradlew build
 
 FROM openjdk:17-slim
